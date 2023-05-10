@@ -1,10 +1,8 @@
 import React from "react";
 import './Heder.css';
 
-function Header(props) {
-  const {
-    onMenuSelect
-  } = props
+function Header({onMenuSelect}) {
+
     return (
         <div className='app-header'>
         <span className='header-title'>learn react</span>
@@ -20,6 +18,9 @@ function Header(props) {
         <span onClick={()=>{
           onMenuSelect('logout')
         }}>Logout</span>
+        <span onClick={()=>{
+          onMenuSelect('counter')
+        }}>Counter</span>
       
       </div>
  

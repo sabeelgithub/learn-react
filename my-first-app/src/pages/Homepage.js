@@ -7,7 +7,7 @@ import Justinfo from "./justinfo";
 
 function Homepage() {
     const [activeState, setActiveState] = useState('all')
-    const [showLabel,setShowLabel] = useState(true)
+    // const [showLabel,setShowLabel] = useState(true)
     const [data,setData] = useState([])
 
     useEffect(()=>{
@@ -31,10 +31,10 @@ function Homepage() {
             })
     }
 
-    const handleShowlabel = (evt)=>{
-        setShowLabel(evt.target.checked)
+    // const handleShowlabel = (evt)=>{
+    //     setShowLabel(evt.target.checked)
 
-    }
+    // }
     const handleDelete = (item)=>{
         console.log('Delete',item)
         const newList = data.filter((element)=>element.id !==item.id)
@@ -82,16 +82,13 @@ console.log(activeState,"active")
     return (
         <div>
         {console.log(newList,"kkkkk")}
-        <div>
-        <input checked={showLabel} onChange={handleShowlabel} type="checkbox" />Show Label
-        </div>
          <Mynewcontext.Provider value={100}>
-        <Mycontext.Provider value={showLabel}>
+
         <Tools labelValue={activeState} onAction={onlistChange} onRefresh={handleRefresh}>
            <SimpleList onLabelClick={handleLabelClick} data={newList} onAction={handleDelete}/>
         </Tools>
-        <Justinfo onClick={handleClick} testValue={value} showLabel={showLabel}/>
-        </Mycontext.Provider>
+        <Justinfo onClick={handleClick} testValue={value} />
+       
         </Mynewcontext.Provider>
         </div>
     )

@@ -3,9 +3,11 @@ import './label.css';
 import { Mycontext,Mynewcontext } from "../pages/mycontext";
 import Tooltip from "./Tooltip";
 import { useTooltip } from "../hooks/ourHooks";
+import { useSelector } from "react-redux";
 
 function Label(props) {
-    const val = useContext(Mycontext)
+    // const val = useContext(Mycontext)
+    const val = useSelector((state)=>state.showLabel)
     const val2 = useContext(Mynewcontext)
     const [showTooltip,setShowTooltip,labelRef,refObj] = useTooltip()
     

@@ -4,6 +4,10 @@ import Footer from './components/footer';
 import Homepage from './pages/Homepage';
 import Dummypage from './pages/dummypage';
 import Usage from './pages/usage';
+import Settings from './pages/settings';
+import NewCounter from './pages/NewCounter';
+import { Provider } from 'react-redux';
+import  store from './Redux/store';
 
 class MyApp extends React.Component {
     constructor(props) {
@@ -30,9 +34,11 @@ class MyApp extends React.Component {
             case 'usage':
                 return <Usage key="usage"  name='Usage'/>
             case 'settings':
-                return <Dummypage key="settings" name='Settings'/>
+                return <Settings key="settings" name='Settings'/>
             case 'logout':
                 return <Dummypage key="logout" name='Logout'/>
+            case 'counter':
+                    return <NewCounter/>
             default:
                 break
 
@@ -41,6 +47,7 @@ class MyApp extends React.Component {
 
     render() {
        return (
+        <Provider store={store}>
            <div className='app'>
                 <Header onMenuSelect={this.handleMenuSelect}/>
                 <div className='app-body'>
@@ -48,6 +55,8 @@ class MyApp extends React.Component {
                 </div>
                 <Footer/>
            </div>
+        </Provider>
+
         )
     }
 }

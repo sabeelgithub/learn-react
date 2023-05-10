@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import './usage.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { decrement, increment } from '../Redux/store'
 
 function Usage() {
-  const [value,setValue] = useState(0)
+  const value = useSelector((state)=>{
+    console.log(state,'kiraaaaaaaa')
+        return state.value
+
+    })
+  const dispatch = useDispatch()
+  
   const [color,setColor] = useState('white')
   const [Boom,setBoom] = useState(false)
   useEffect(()=>{
@@ -21,15 +29,13 @@ function Usage() {
     <div className='usage'>
     <div className='usage-item' style={{background:color}}>
     <button onClick={()=>{
-        setValue((state)=>{
-            return state+1
-        })
+        dispatch(increment())
+       
     }}>Increment</button>
     <label htmlFor="">{value}</label>
     <button onClick={()=>{
-        setValue((state)=>{
-            return state-1
-        })
+        dispatch(decrement())
+       
     }}>Decrement</button>
     </div>
     <button onClick={()=>{
