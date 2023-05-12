@@ -8,6 +8,7 @@ import Settings from './pages/settings';
 import NewCounter from './pages/NewCounter';
 import { Provider } from 'react-redux';
 import  store from './Redux/store';
+import Test from './pages/test';
 
 class MyApp extends React.Component {
     constructor(props) {
@@ -39,6 +40,8 @@ class MyApp extends React.Component {
                 return <Dummypage key="logout" name='Logout'/>
             case 'counter':
                     return <NewCounter/>
+            case 'test':
+                        return <Test/>
             default:
                 break
 

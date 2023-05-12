@@ -21,6 +21,9 @@ function Header({onMenuSelect}) {
         <span onClick={()=>{
           onMenuSelect('counter')
         }}>Counter</span>
+        <span onClick={()=>{
+          onMenuSelect('test')
+        }}>Test</span>
       
       </div>
  
